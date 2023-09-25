@@ -1,38 +1,165 @@
-.App {
-  text-align: center;
+:root {
+  --primaryClr: rgb(167, 201, 167);
+  --secondaryClr: rgb(181, 137, 189);
+  --trClr: rgba(88, 69, 90, 0.732);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-size: 1.1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
+.wrapper {
+  background: linear-gradient(var(--trClr), var(--primaryClr));
+
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.calculator {
+  background: rgba(128, 128, 128, 0.438);
+  width: 400px;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+
+  display: grid;
+  gap: 1rem;
+  /* grid-template-columns: repeat(4, 2fr); */
+
+  grid-template-areas:
+    'display display display display'
+    'ac c per divide'
+    'b7 b8 b9 X'
+    'b4 b5 b6 minus'
+    'b1 b2 b3 plus'
+    'b0 dot ans ans';
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.calculator .btn {
+  background: var(--trClr);
+  height: 50px;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.calculator .btn:hover {
+  background: var(--secondaryClr);
+  cursor: pointer;
+}
+
+.display {
+  grid-area: display;
+  background: var(--secondaryClr);
+  height: 50px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.btn-ac {
+  grid-area: ac;
+}
+
+.btn-c {
+  grid-area: c;
+}
+
+.btn-per {
+  grid-area: per;
+}
+
+.btn-divide {
+  grid-area: divide;
+}
+
+.btn-7 {
+  grid-area: b7;
+}
+
+.btn-8 {
+  grid-area: b8;
+}
+
+.btn-9 {
+  grid-area: b9;
+}
+
+.btn-X {
+  grid-area: X;
+}
+
+.btn-4 {
+  grid-area: b4;
+}
+
+.btn-5 {
+  grid-area: b5;
+}
+
+.btn-6 {
+  grid-area: b6;
+}
+
+.btn-minus {
+  grid-area: minus;
+}
+
+.btn-1 {
+  grid-area: b1;
+}
+
+.btn-2 {
+  grid-area: b2;
+}
+
+.btn-3 {
+  grid-area: b3;
+}
+
+.btn-plus {
+  grid-area: plus;
+}
+
+.btn-0 {
+  grid-area: b0;
+}
+
+.btn.dot {
+  grid-area: dot;
+}
+
+.btn-ans {
+  grid-area: ans;
+}
+
+.prank {
+  background-color: blue;
+  color: yellow;
+  animation: shake 0.5s ease-in;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(10px);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-10px);
   }
 }
